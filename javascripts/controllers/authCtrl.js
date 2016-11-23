@@ -4,6 +4,13 @@ app.controller('AuthCtrl', function($scope, AuthFactory, UserFactory, $location,
 	$scope.loginContainer = true;
 	$scope.registerContainer = false;
 
+
+	if($location.path()==="/logout"){
+		AuthFactory.logout();
+		$rootScope.user = {};
+		$location.url("/auth");
+	};
+
 	let logMeIn = function(logInStuff){
 			AuthFactory.authenticate(logInStuff).then(function(didLogin){
 			// console.log("did login", didLogin);

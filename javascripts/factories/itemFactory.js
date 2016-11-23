@@ -12,7 +12,6 @@ app.factory("ItemFactory", function($q, $http, FIREBASE_CONFIG){
 					items.push(response[key]);
 				})
 				resolve(items);
-
 			})
 			.error(function(errorResponse){
 				reject(errorResponse);
@@ -27,7 +26,7 @@ var postNewItem = function(newItem){
 			assignedTo: newItem.assignedTo,
 			isCompleted: newItem.isCompleted,
 			task: newItem.task,
-			uid: newItem.uid
+			uid: newItem.userId
 		})
 		)
 		.success(function(postResponse){
